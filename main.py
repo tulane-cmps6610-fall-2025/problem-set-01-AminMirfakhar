@@ -4,13 +4,27 @@ See problemset-01.pdf for details.
 """
 # no imports needed.
 
-def foo(x):
-    ### TODO
-    pass
+def foo(a, b):
+    if a == 0:
+        print(b)
+    elif b == 0:
+        print(a)
+    else:
+        x, y = min(a, b), max(a, b)
+        foo(y, y%x)
+
 
 def longest_run(mylist, key):
-    ### TODO
-    pass
+    counter = 0
+    longest = 0
+    for element in mylist:
+        if element == key:
+            counter += 1
+            longest = max(counter, longest)
+        else:
+            counter = 0
+
+    return longest
 
 
 class Result:
