@@ -12,7 +12,7 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
     Base on definition: \: $g(n) \in O(f(n))$ \: if  \: $g(n) \leq c*f(n)$ \: exists such  \: $c > 0$ \: for all \: $n \geq n_0$
 
-    dfsdfsd
+    So we should prove that $2^{n+1} \leq c*2^n$
 
   - 1b False
  
