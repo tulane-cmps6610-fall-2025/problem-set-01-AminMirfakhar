@@ -2,12 +2,13 @@
 ## Answers
 
 **Name:** Seyed Amin Mir Fakhar
-**Name:**_________________________
 
 
 Place all written answers from `assignment-01.md` here for easier grading.
 
 1. **Asymptotic notation**
+
+  - 1a 
 
   - 1b False
  
