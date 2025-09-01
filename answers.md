@@ -8,7 +8,9 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
 1. **Asymptotic notation**
 
-  - 1a 
+  - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not?
+
+    Base on definition: \: $g(n) \in O(f(n))$ \: if  \: $g(n) \leq c*f(n)$ \: exists such  \: $c > 0$ \: for all \: $n \geq n_0$
 
   - 1b False
  
