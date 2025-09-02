@@ -94,7 +94,7 @@ Consider the following SPARC specification:
     - so if we run foo(18, 7) it will run foo(18, 4) then foo(18, 2) then foo(18, 0) which returns 18.
    
   - 2c. What is the work and span of `foo`?
-    - Since each step is order of 1, then W(n) = O(log(min(a, b)). Also we don't use any parallelism so the span = work. S(n) = O(log(min(a, b)).
+    - Since each operation at every step is order of 1 (O(1)), then the total work is equal to number of iteration * O(1). which means W(n) = O(number of devisions for any (a, b)) so we can say W(n) = O(log(min(a, b)). Also we don't use any parallelism so the span = work. S(n) = O(log(min(a, b)).
 
 3. **Parallelism and recursion**
   - 3a. First, implement an iterative, sequential version of `longest_run` in `main.py`.
@@ -163,10 +163,13 @@ test_longest_run()
 
 ```
   
-  - What is the Work and Span of this recursive algorithm?
-    - 3d W(n) = O(n.log(n)) and S(n) = (log(n))
+  - 3d   What is the Work and Span of this recursive algorithm?
+    - since we divide the input size into two sublist (left, right) recursively we to have log(n) level from root to leaves and then we sum them up with o(1) conditions with same amount of nodes and edges so we can say the longest path is O(log(n)). But if we do all the process sequencly then we have to iterate over all element and then W(n) = S(n) = O(n), in recursive defination:
+    -  W(n) = 2W(n/2) + c and S(n) = 2S(n/2) + c
 
 
-  - 3e  Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm? 
+  - 3e  Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm?
+    - base on previous part span is (log(n)) and since we have access to infinite core (threat) base on defination of parallelism then the S(n) = O(log(n)) but the work is as same as before.
+    -  W(n) = O(n) and S(n) = (log(n))
 
   
