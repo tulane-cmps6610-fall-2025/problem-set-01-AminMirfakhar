@@ -62,3 +62,8 @@ def test_longest_run():
     assert get_longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3
 
 
+## Tests
+test_longest_run()
+
+
+
