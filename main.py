@@ -6,12 +6,12 @@ See problemset-01.pdf for details.
 
 def foo(a, b):
     if a == 0:
-        print(b)
+        return b
     elif b == 0:
-        print(a)
+        return a
     else:
         x, y = min(a, b), max(a, b)
-        foo(y, y%x)
+        return foo(y, y%x)
 
 
 def longest_run(mylist, key):
