@@ -76,6 +76,7 @@
 Consider the following SPARC specification:  
 
   - 2a Translate this to Python code
+  
   ```python
 
       def foo(a, b):
@@ -90,9 +91,10 @@ Consider the following SPARC specification:
 
   - 2b What does this function do, in your own words?
     - It returns the max number! It takas the maximum number (y = max(a, b)) at each iteration and the mod of this number to the minimum of two inputs (y%x, x = min(a, b)), Then recursively calls itself untill the y%x reaches the zero and the function returns the other value which is y = max(a, b).
+    - so if we run foo(18, 7) it will run foo(18, 4) then foo(18, 2) then foo(18, 0) which returns 18.
    
   - 2c. What is the work and span of `foo`?
-    
+    - Since each step is order of 1, then W(n) = O(log(min(a, b)). Also we don't use any parallelism so the span = work. S(n) = O(log(min(a, b)).
 
 3. **Parallelism and recursion**
 
