@@ -28,11 +28,11 @@ def longest_run(mylist, key):
 
 
 class Result:
-    def __init__(self, longest, prefix, suffix, total):
-        self.longest = longest
-        self.prefix = prefix
-        self.suffix = suffix
-        self.total = total
+    def __init__(self, longest_size , left_size , right_size , is_entire_range ):
+        self.longest_size  = longest_size 
+        self.left_size  = left_size 
+        self.right_size  = right_size 
+        self.is_entire_range  = is_entire_range 
 
 def longest_run_recursive(arr, key):
     if len(arr) == 0:
@@ -47,23 +47,20 @@ def longest_run_recursive(arr, key):
     left = longest_run_recursive(arr[:mid], key)
     right = longest_run_recursive(arr[mid:], key)
 
-    total = left.total + right.total if left.total == mid and right.total == len(arr) - mid else 0
-    prefix = left.prefix if left.prefix != mid else left.prefix + right.prefix
-    suffix = right.suffix if right.suffix != (len(arr) - mid) else right.suffix + left.suffix
-    longest = max(left.longest, right.longest, left.suffix + right.prefix)
+    is_entire_range = left.is_entire_range + right.is_entire_range if left.is_entire_range == mid and right.is_entire_range == len(arr) - mid else 0
+    left_size = left.left_size if left.left_size != mid else left.left_size + right.left_size
+    right_size = right.right_size if right.right_size != (len(arr) - mid) else right.right_size + left.right_size
+    longest_size = max(left.longest_size, right.longest_size, left.right_size + right.left_size)
 
-    return Result(longest, prefix, suffix, total)
+    return Result(longest_size, left_size, right_size, is_entire_range)
 
 def get_longest_run(arr, key):
-    return longest_run_recursive(arr, key).longest
+    return longest_run_recursive(arr, key).longest_size
 
 ## Feel free to add your own tests here.
 def test_longest_run():
     assert get_longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3
 
-
 ## Tests
 test_longest_run()
-
-
 
